@@ -11,7 +11,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140405175211) do
+ActiveRecord::Schema.define(version: 20140405181326) do
+
+  create_table "choice_questions", force: true do |t|
+    t.string   "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "document_id"
+  end
+
+  add_index "choice_questions", ["document_id"], name: "index_choice_questions_on_document_id"
+
+  create_table "choices", force: true do |t|
+    t.string   "text"
+    t.integer  "choice_question_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "choices", ["choice_question_id"], name: "index_choices_on_choice_question_id"
+
+  create_table "documents", force: true do |t|
+    t.string   "name"
+    t.integer  "group_id"
+    t.integer  "owner_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "documents", ["group_id"], name: "index_documents_on_group_id"
+  add_index "documents", ["owner_id"], name: "index_documents_on_owner_id"
+
+  create_table "groups", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "text_questions", force: true do |t|
+    t.string   "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "document_id"
+  end
+
+  add_index "text_questions", ["document_id"], name: "index_text_questions_on_document_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
