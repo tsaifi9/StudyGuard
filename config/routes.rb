@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  resources :groups, only: [:index, :show, :new, :create] do
+    resources :documents, only: [:show, :create]
+  end
 
-
-  resources :groups, only: [:index, :show, :new, :create]
   post 'groups/:id/join' => 'groups#join', as: :join_group
 
   root 'home#show'

@@ -1,3 +1,15 @@
 h1= @group.name
-- unless @group.users.include? current_user
+- if @group.users.include? current_user
+  ul
+  - @group.documents.each do |doc|
+    li= link_to doc.name, [@group, doc]
+
+  h2 Add a document:
+  = form_for([@group, @group.documents.build]) do |f|
+    = f.label :name
+    = f.text_field :name
+    = f.submit
+
+- else
   p= link_to "Request Membership", join_group_path, method: :post
+end
