@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   resources :groups, only: [:index, :show, :new, :create] do
-    resources :documents, only: [:show, :create]
+    resources :documents, only: [:show, :create] do
+      resources :questions, only: [:show, :create] do
+        resources :answers, only: [:show, :create] do
+          resources :votes, only: [:create]
+        end
+      end
+    end
   end
 
   post 'groups/:id/join' => 'groups#join', as: :join_group
