@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140405183555) do
+ActiveRecord::Schema.define(version: 20140405202023) do
 
   create_table "choice_answers", force: true do |t|
     t.integer  "choice_id"
@@ -32,6 +32,17 @@ ActiveRecord::Schema.define(version: 20140405183555) do
   end
 
   add_index "choice_questions", ["document_id"], name: "index_choice_questions_on_document_id"
+
+  create_table "choice_votes", force: true do |t|
+    t.integer  "choice_answer_id"
+    t.integer  "user_id"
+    t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "choice_votes", ["choice_answer_id"], name: "index_choice_votes_on_choice_answer_id"
+  add_index "choice_votes", ["user_id"], name: "index_choice_votes_on_user_id"
 
   create_table "choices", force: true do |t|
     t.text     "text"
@@ -76,6 +87,17 @@ ActiveRecord::Schema.define(version: 20140405183555) do
   end
 
   add_index "text_questions", ["document_id"], name: "index_text_questions_on_document_id"
+
+  create_table "text_votes", force: true do |t|
+    t.integer  "text_answer_id"
+    t.integer  "user_id"
+    t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "text_votes", ["text_answer_id"], name: "index_text_votes_on_text_answer_id"
+  add_index "text_votes", ["user_id"], name: "index_text_votes_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
