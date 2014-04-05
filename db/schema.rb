@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140405181326) do
+ActiveRecord::Schema.define(version: 20140405182916) do
+
+  create_table "choice_answers", force: true do |t|
+    t.integer  "choice_id"
+    t.integer  "choice_question_id"
+    t.text     "explanation"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "choice_answers", ["choice_id"], name: "index_choice_answers_on_choice_id"
+  add_index "choice_answers", ["choice_question_id"], name: "index_choice_answers_on_choice_question_id"
 
   create_table "choice_questions", force: true do |t|
     t.string   "text"
@@ -47,6 +58,15 @@ ActiveRecord::Schema.define(version: 20140405181326) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "text_answers", force: true do |t|
+    t.integer  "text_question_id"
+    t.text     "explanation"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "text_answers", ["text_question_id"], name: "index_text_answers_on_text_question_id"
 
   create_table "text_questions", force: true do |t|
     t.string   "text"
