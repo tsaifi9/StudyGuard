@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
   has_many :choice_votes
   has_many :text_answers
   has_many :text_votes
+  has_and_belongs_to_many :groups
 end

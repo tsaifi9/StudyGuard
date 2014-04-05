@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140405210409) do
+ActiveRecord::Schema.define(version: 20140405212246) do
 
   create_table "choice_answers", force: true do |t|
     t.integer  "choice_id"
@@ -71,6 +71,26 @@ ActiveRecord::Schema.define(version: 20140405210409) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "groups_users", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "groups_users", ["group_id"], name: "index_groups_users_on_group_id"
+  add_index "groups_users", ["user_id"], name: "index_groups_users_on_user_id"
+
+  create_table "members", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "members", ["group_id"], name: "index_members_on_group_id"
+  add_index "members", ["user_id"], name: "index_members_on_user_id"
 
   create_table "text_answers", force: true do |t|
     t.integer  "text_question_id"
