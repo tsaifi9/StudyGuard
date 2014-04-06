@@ -11,7 +11,7 @@ div class="row"
     - if current_user.has_contributed_to @question.document
       - @answers.each do |ans|
         div class="panel" style="background-color: #FFF; overflow: auto"
-          p class="left text-left"= ans.text
+          p class="text-left"= ans.text
           div class="left score"
             span= ans.score.to_s
           - unless current_user.voted_for ans
