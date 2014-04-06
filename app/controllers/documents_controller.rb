@@ -1,5 +1,6 @@
 class DocumentsController < ApplicationController
   def show
+    @group = Group.find params[:group_id]
     @document = Document.find params[:id]
   end
 

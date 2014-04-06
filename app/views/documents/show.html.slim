@@ -1,2 +1,16 @@
 h1= @document.name
 = link_to "Back to #{@document.group.name}", @document.group
+
+
+h2 Questions
+ul
+  - @document.questions.each do |q|
+    li= q.text
+
+h2 Add a question:
+/= form_for([@document, @document.questions.build]) do |f|
+/= form_for(group_document_questions_path(@group, @document, @document.questions.build)) do |f|
+= form_for @document.questions.build, url: group_document_questions_path(@group, @document, @document.questions.build) do |f|
+  = f.label :text
+  = f.text_area :text
+  = f.submit
