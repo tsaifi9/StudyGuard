@@ -15,8 +15,9 @@ div class="row"
           div class="left score"
             span= ans.score.to_s
           - unless current_user.voted_for ans
-            = button_to " ", group_document_question_answer_votes_path(@question.document.group, @question.document, @question, ans, ans.votes.build, params: {value: 1}), id: "upvoteButton", class: "right"
-            = button_to " ", group_document_question_answer_votes_path(@question.document.group, @question.document, @question, ans, ans.votes.build, params: {value: -1}), id: "downvoteButton", class: "right"
+            = button_to " ", group_document_question_answer_votes_path(@question.document.group, @question.document, @question, ans, ans.votes.build, params: {value: 1}), id: "upvoteButton", class: "left"
+            = button_to " ", group_document_question_answer_votes_path(@question.document.group, @question.document, @question, ans, ans.votes.build, params: {value: -1}), id: "downvoteButton", class: "left"
+          span class="right" Submitted by #{ans.user.name}
     - else
       p Contribute to view answers!
 
