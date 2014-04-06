@@ -1,0 +1,358 @@
+/* General */
+h1, h2 {
+	font-weight:300;
+}
+
+.navbar-collapse.in {
+	background: #fff;
+	box-shadow: 0px 2px 5px rgba(0,0,0,0.4);
+}
+
+.padding-top {
+	padding-top:30px;
+}
+
+.modile-content.padding-top {
+}
+
+.padding-bottom {
+	padding-bottom:30px;
+}
+
+.muted {
+	color:#aaa;
+	font-weight:300;
+}
+
+.navbar {
+	height:50px;
+	background:#fff;
+}
+
+#login-navbar {
+	padding-top:7px;
+}
+
+.navbar-brand {
+	font-weight: bold;
+}
+
+.align-center {
+	text-align:center;
+}
+
+.signup-btn, .cta-btn {
+	padding:16px 24px;
+	font-size:24px;
+	font-weight:300;
+	min-width:240px;
+}
+
+.well {
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+/* Landing Page */
+.landing-page {
+  min-height: 2000px;
+  padding: 50px 0;
+  width:100%;
+  max-width:100%;
+}
+
+.landing-page .intro {
+	min-height:700px;
+	padding:50px;
+	background:url('../images/stock-1-classroom-edit-light.jpg') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.landing-page .intro h1 {
+	font-size:48px;
+}
+
+.landing-page .intro h3 {
+	
+}
+
+.landing-page .intro a {
+	padding:16px 24px;
+	font-size:24px;
+	font-weight:300;
+	min-width:240px;
+}
+
+.story {
+	min-height:700px;
+	padding:50px;
+	border-bottom:2px solid rgba(0,0,0,0.2);
+	box-shadow:0px 4px 16px rgba(0,0,0,0.3);
+}
+
+.story.teachers {
+	background:#eee;
+}
+
+.story.administrators {
+	background:#E0F3FF;
+}
+
+.story.support-staff {
+	background:#EFFFF0;
+}
+
+/* CUSTOM DESKTOP STYLES */
+@media (min-width: 768px) {
+	.landing-page .intro h1 {
+		font-size:64px;
+	}
+}
+
+
+/* Login */
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 40px auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+  font-weight:300;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* Teacher Nav */
+.sequence-navigation a {
+	text-decoration: none;
+}
+
+.sequence {
+	padding:4px 8px;
+}
+
+.sequence.active {
+	background:#fff;
+}
+
+.sequence:hover {
+	background:#fff;
+}
+
+.sequence.inactive {
+	display:none;
+}
+
+.sequence .additional-links {
+	height:24px;
+}
+
+.sequence .additional-links a {
+	padding:0px 12px;
+}
+
+.modules {
+	display: block;
+	list-style-type: disc;
+	-webkit-margin-before: 0.25em;
+	-webkit-margin-after: 0.25em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	-webkit-padding-start: 22px;
+}
+
+.modules li.active {
+	font-weight:bold;
+}
+
+.modules li.active a {
+	color:#333;
+}
+
+.modules a {
+	color:#666;
+	text-decoration: underline;
+}
+
+
+.module-content h2 {
+	color:#666;
+}
+
+.module-continue {
+	height:100px;
+}
+
+.show-all-sequences:hover, .hide-all-sequences:hover {
+	background:#fff;
+	cursor:pointer;
+}
+
+/* TEACHER CONTENT */
+
+
+
+.section {
+	padding-bottom:12px;
+	margin-bottom:12px;
+	border-bottom:1px dashed #ccc;
+}
+
+.section h2 {
+	margin-top:0;
+}
+
+.read-more-section-1, .read-more-section-2 {
+	display:none;
+}
+
+.read-more-1, .read-more-2 {
+	margin:20px auto;
+	display:inline-block;
+}
+
+.user-header {
+	min-height:100px;
+	padding: 10px;
+	margin-bottom: 20px;
+	background-color: #f9f9f9;
+	border: 1px solid #e3e3e3;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.user-header .profile-picture {
+	max-height:75px;
+	max-width:75px;
+}
+
+.user-header .profile-title {
+	padding-left:12px;
+}
+
+.profile-dashboard .user-header .profile-title {
+	padding-top:20px;
+}
+
+.profile-title h4 {
+	margin:0;
+}
+
+.teachers-content {
+	padding-top:60px;
+}
+
+.teachers-content h1 {
+	font-weight:300;
+}
+
+.alert-success {
+	text-align:center;
+}
+
+.alert-success .close {
+	font-size:32px;
+	margin:0;
+	position:relative;
+	top:-6px;
+}
+
+.teacher-intro {
+	position:fixed;
+	top:50px;
+	left:0;
+	width:100%;
+	background:rgba(73, 209, 73, 0.8);
+	color:#fff;
+	text-shadow:0px 1px 5px rgba(0,0,0,0.5);
+	z-index:99999;
+	text-align:center;
+}
+
+.teacher-intro h3 {
+	padding:12px;
+	margin:0;
+}
+
+.resources span {
+	display:inline-block;
+	font-size:36px;
+}
+
+.resources .well {
+	min-height:60px;
+}
+
+.resources a {
+	color:#333;
+}
+
+.resources a:hover {
+	text-decoration: none;
+}
+
+.profile-dashboard {
+	padding:60px 24px;
+}
+
+.profile-dashboard .sequence {
+	min-height:120px;
+}
+
+.sequence.completed {
+	background:#C1E2C1;
+}
+
+.profile-dashboard {
+	min-height:120px;
+}
+
+.profile-dashboard a {
+	color:#222;
+}
+
+.profile-dashboard a:hover {
+	text-decoration: none;
+	color:#000;
+}
+
+
+
+.profile-progress .lead {
+	margin-bottom:0;
+	margin-top:20px;
+}
+
+.progress {
+	background:#999;
+}
