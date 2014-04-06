@@ -1,6 +1,7 @@
 div class="row"
   div class="medium-6 medium-centered columns panel large-6 large-centered columns panel text-center"
-    h1= @document.name
+    = image_tag "newdocumenticon.png"
+    h4= @document.name
 
     - @document.questions.each do |q|
       - if q.answers.count > 0
