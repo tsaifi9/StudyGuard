@@ -1,5 +1,8 @@
 class QuestionsController < ApplicationController
   def show
+    @group = Group.find params[:group_id]
+    @document = Document.find params[:document_id]
+    @question = Question.find params[:id]
   end
 
   def create

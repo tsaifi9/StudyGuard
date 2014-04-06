@@ -1,10 +1,4 @@
 class AnswersController < ApplicationController
-  def show
-  end
-
-  def new
-  end
-
   def create
     @question = Question.find params[:question_id]
 
@@ -12,6 +6,8 @@ class AnswersController < ApplicationController
     answer.user = current_user
 
     @question.answers << answer
+
+    redirect_to group_document_question_path(@question.document.group, @question.document, @question)
   end
 
   private
