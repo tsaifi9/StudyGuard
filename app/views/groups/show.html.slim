@@ -29,6 +29,6 @@ div class="row"
       p
       h4= "Invite User"
       = form_tag(group_invite_path, method: "post") do
-        = label_tag(:email, "Email:")
+        = label_tag(:email, "Email")
         = text_field_tag(:email)
         = submit_tag("Invite User", class: "button expand")
