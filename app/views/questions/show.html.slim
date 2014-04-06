@@ -1,5 +1,5 @@
 div class="row"
-  div class="large-12 large-centered columns"
+  div class="medium-6 medium-centered columns panel large-6 large-centered text-center"
     h1 Question
     div class="panel"
       == @pipeline.call(@question.text)[:output].to_s
@@ -17,8 +17,10 @@ div class="row"
       p Contribute to view answers!
 
 
-    h2 Add an answer:
+  div class="medium-6 medium-centered columns panel large-6 large-centered text-center" style="overflow: auto"
+    p= image_tag "newquestionicon.png"
     = form_for @question.answers.build, url: group_document_question_answers_path(@group, @document, @question, @question.answers.build) do |f|
       = f.label :text
       = f.text_area :text
-      = f.submit
+      = f.submit class: "button expand"
+    = link_to "Back to #{@document.name}", [@question.document.group, @question.document]
