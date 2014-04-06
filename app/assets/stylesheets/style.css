@@ -2,3 +2,38 @@
   width: 100%;
 }
 
+#upvoteButton {
+  color: #FFF;
+  background-image: url("uparrowmini.png");
+  width: 16px;
+  height: 16px;
+  background-color: #FFF;
+  border-style: none;
+}
+
+#downvoteButton {
+  color: #FFF;
+  background-image: url("downarrowmini.png");
+  width: 16px;
+  height: 16px;
+  background-color: #FFF;
+  border-style: none;
+}
+
+.score {
+  background: #551822;
+  width: 16px;
+  height: 16px;
+  display: block;
+  border-radius: 8px;
+  color: white;
+  margin-right: 10px;
+  overflow: auto;
+}
+
+.score span {
+  display: block;
+  padding-top: 4px;
+  padding-left: -1px;
+  font-size: 10px;
+}
