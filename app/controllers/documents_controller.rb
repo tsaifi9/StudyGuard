@@ -2,6 +2,8 @@ class DocumentsController < ApplicationController
   def show
     @group = Group.find params[:group_id]
     @document = Document.find params[:id]
+
+    @pipeline = HTML::Pipeline.new [HTML::Pipeline::MarkdownFilter]
   end
 
   def create

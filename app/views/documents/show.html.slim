@@ -5,11 +5,10 @@ div class="row"
 
 
     h2 Questions
-    ul
-      - @document.questions.each do |q|
-        li
-          = link_to "View Question", group_document_question_path(@group, @document, q)
-          == q.text
+    - @document.questions.each do |q|
+      div class="panel"
+        == @pipeline.call(q.text)[:output].to_s
+        = link_to "View Question", group_document_question_path(@group, @document, q)
 
     h2 Add a question:
     = form_for @document.questions.build, url: group_document_questions_path(@group, @document, @document.questions.build) do |f|

@@ -3,6 +3,8 @@ class QuestionsController < ApplicationController
     @group = Group.find params[:group_id]
     @document = Document.find params[:document_id]
     @question = Question.find params[:id]
+
+    @pipeline = HTML::Pipeline.new [HTML::Pipeline::MarkdownFilter]
   end
 
   def create

@@ -44,3 +44,6 @@ gem 'devise', '>= 3.0.0'
 
 gem "letter_opener", :group => :development
 gem 'foundation-rails'
+# Markdown
+gem 'html-pipeline'
+gem 'github-markdown'
