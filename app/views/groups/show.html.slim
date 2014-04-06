@@ -10,6 +10,8 @@ div class="row"
             div class="medium-12 columns panel large-12 text-center" style="background-color:#FFF"
               span class="left" = link_to doc.name, [@group, doc]
               span class="right" = pluralize(doc.questions.count, " Question")
+        = link_to "Back to groups", groups_url
+
 
     - else
       p= link_to "Request Membership", join_group_path, method: :post
