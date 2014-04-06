@@ -16,4 +16,14 @@ class User < ActiveRecord::Base
 
     false
   end
+
+  def has_contributed_to(document)
+    document.questions.each do |question|
+      question.answers.each do |answer|
+        return true if answer.user == self
+      end
+    end
+
+    false
+  end
 end
