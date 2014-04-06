@@ -6,7 +6,7 @@ div class="row"
       == @pipeline.call(@question.text)[:output].to_s
 
   div class="medium-6 medium-centered columns panel large-6 large-centered text-center"
-    p= image_tag "newquestionicon.png"
+    p= image_tag "answersmultipleicon.png"
     h4 Answers
     - if current_user.has_contributed_to @question.document
       - @answers.each do |ans|
