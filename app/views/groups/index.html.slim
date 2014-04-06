@@ -7,4 +7,7 @@ div class="row"
       = link_to "New Group", new_group_path, class: "button expand"
 
     - @groups.each do |group|
-      div class="large-12 columns panel" style="background-color:#FFF" = link_to group.name, group
+        div class="large-12 columns panel" style="background-color:#FFF"
+          span class="left" = link_to group.name, group
+          span class="right"= pluralize(group.documents.count, " Document")
+
