@@ -7,4 +7,13 @@ class User < ActiveRecord::Base
   has_many :answers
   has_many :votes
   has_and_belongs_to_many :groups
+
+
+  def voted_for(answer)
+    self.votes.each do |vote|
+      return true if vote.answer == answer
+    end
+
+    false
+  end
 end

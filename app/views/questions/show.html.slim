@@ -7,7 +7,12 @@ div class="row"
     h2 Answers
     ul
       - @question.answers.each do |ans|
-        li= ans.text
+        li= ans.score.to_s + " - " + ans.text
+
+        - unless current_user.voted_for ans
+          = button_to "+1", group_document_question_answer_votes_path(@question.document.group, @question.document, @question, ans, ans.votes.build, params: {value: 1})
+          = button_to "-1", group_document_question_answer_votes_path(@question.document.group, @question.document, @question, ans, ans.votes.build, params: {value: -1})
+
 
     h2 Add a question:
     = form_for @question.answers.build, url: group_document_question_answers_path(@group, @document, @question, @question.answers.build) do |f|
