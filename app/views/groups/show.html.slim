@@ -1,20 +1,29 @@
 div class="row"
-  div class="medium-6 medium-centered columns panel large-6 large-centered columns panel text-center" style="overflow: auto"
-    h1= @group.name
+  div class="medium-6 medium-centered columns panel large-6 large-centered text-center"
+    = image_tag "documentlistlogo.png"
+    p
+    h4= @group.name
     - if @group.users.include? current_user
       ul style="list-style: none; margin-left: 0"
         - @group.documents.each do |doc|
           li= link_to doc.name, [@group, doc], class: "button expand"
-
-      = image_tag "newdocumenticon.png"
-      = form_for([@group, @group.documents.build]) do |f|
-        = f.label :name
-        = f.text_field :name
-        = f.submit class: "button expand"
-
     - else
       p= link_to "Request Membership", join_group_path, method: :post
 
+
+  div class="medium-6 medium-centered columns panel large-6 large-centered text-center" style="overflow: auto"
+    = image_tag "newdocumenticon.png"
+    p
+    h4= "Create New Document"
+    = form_for([@group, @group.documents.build]) do |f|
+      = f.label :name
+      = f.text_field :name
+      = f.submit class: "button expand"
+
+  div class="medium-6 medium-centered columns panel large-6 large-centered text-center" style="overflow: auto"
+    = image_tag "profilelogo.png"
+    p
+    h4= "Invite User"
     = form_tag(group_invite_path, method: "post") do
       = label_tag(:email, "Email:")
       = text_field_tag(:email)

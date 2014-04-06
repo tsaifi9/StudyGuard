@@ -10,7 +10,7 @@ div class="row"
     br
     br
     = form_for @document.questions.build, url: group_document_questions_path(@group, @document, @document.questions.build) do |f|
-      = f.label :text
+      = f.label :text, class: "formlabel"
       = f.text_area :text
       = f.submit class: "button expand"
     = link_to "Back to #{@document.group.name}", @document.group
