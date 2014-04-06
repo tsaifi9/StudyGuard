@@ -4,7 +4,9 @@ div class="row"
     - if @group.users.include? current_user
       ul style="list-style: none; margin-left: 0"
         - @group.documents.each do |doc|
-          li= link_to doc.name, [@group, doc], class: "button expand"
+          div class="large-12 columns panel" style="background-color:#FFF"
+            span class="left" = link_to doc.name, [@group, doc]
+            span class="right" = pluralize(doc.questions.count, " Question")
 
       = image_tag "newdocumenticon.png"
       = form_for([@group, @group.documents.build]) do |f|
@@ -12,10 +14,12 @@ div class="row"
         = f.text_field :name
         = f.submit class: "button expand"
 
+      = form_tag(group_invite_path, method: "post") do
+        = label_tag(:email, "Email:")
+        = text_field_tag(:email)
+        = submit_tag("Invite User", class: "button expand")
+
     - else
       p= link_to "Request Membership", join_group_path, method: :post
 
-    = form_tag(group_invite_path, method: "post") do
-      = label_tag(:email, "Email:")
-      = text_field_tag(:email)
-      = submit_tag("Invite User", class: "button expand")
+
