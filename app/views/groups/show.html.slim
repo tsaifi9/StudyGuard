@@ -4,7 +4,7 @@ div class="row"
     p
     h4= @group.name
     - if @group.users.include? current_user
-      ul style="list-style: none; margin-left: 0"
+      ul style="list-style: none; margin-left: 15px; margin-right: 15px"
         - @group.documents.each do |doc|
           div class="row"
             div class="medium-12 columns panel large-12 text-center" style="background-color:#FFF"
