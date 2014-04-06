@@ -19,7 +19,10 @@ div class="row"
             = button_to " ", group_document_question_answer_votes_path(@question.document.group, @question.document, @question, ans, ans.votes.build, params: {value: -1}), id: "downvoteButton", class: "left"
           span class="right" Submitted by #{ans.user.name} on #{ans.created_at.strftime("%m/%d at %I:%M%p")}
     - else
-      p Contribute to view answers!
+        = image_tag "answerNeededIcon.png", class: "left", style: "margin-right: 17px; padding-top: 3px"
+        h5 class="left" style="color: red" You must contribute first before you can view answers.
+        br
+        br
 
 
   div class="medium-6 medium-centered columns panel large-6 large-centered text-center" style="overflow: auto"
