@@ -10,7 +10,7 @@ div class="row"
     h4 Answers
     - if current_user.has_contributed_to @question.document
       - @answers.each do |ans|
-        div class="panel" style="background-color: #FFF"
+        div class="panel" style="background-color: #FFF; height: 55px"
           div class="left score"
             span= ans.score.to_s
           span class="left"= ans.text
