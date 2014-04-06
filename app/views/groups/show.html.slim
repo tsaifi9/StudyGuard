@@ -1,19 +1,21 @@
-h1= @group.name
-- if @group.users.include? current_user
-  ul
-  - @group.documents.each do |doc|
-    li= link_to doc.name, [@group, doc]
+div class="row"
+  div class="large-12 large-centered columns"
+    h1= @group.name
+    - if @group.users.include? current_user
+      ul
+      - @group.documents.each do |doc|
+        li= link_to doc.name, [@group, doc]
 
-  h2 Add a document:
-  = form_for([@group, @group.documents.build]) do |f|
-    = f.label :name
-    = f.text_field :name
-    = f.submit
+      h2 Add a document:
+      = form_for([@group, @group.documents.build]) do |f|
+        = f.label :name
+        = f.text_field :name
+        = f.submit
 
-- else
-  p= link_to "Request Membership", join_group_path, method: :post
+    - else
+      p= link_to "Request Membership", join_group_path, method: :post
 
-= form_tag(group_invite_path, method: "post") do
-  = label_tag(:email, "Email:")
-  = text_field_tag(:email)
-  = submit_tag("Invite User")
+    = form_tag(group_invite_path, method: "post") do
+      = label_tag(:email, "Email:")
+      = text_field_tag(:email)
+      = submit_tag("Invite User")
