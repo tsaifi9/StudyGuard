@@ -5,7 +5,7 @@ div class="row"
     - @document.questions.each do |q|
       div class="panel" style="background-color: #FFF"
         == @pipeline.call(q.text)[:output].to_s
-        = link_to "View Question", group_document_question_path(@group, @document, q)
+        = link_to "View Question", group_document_question_path(@group, @document, q), class: "button expand"
 
   div class="medium-6 medium-centered columns panel large-6 large-centered text-center" style="overflow: auto"
     = image_tag "newquestionicon.png"
