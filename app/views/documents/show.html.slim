@@ -4,12 +4,18 @@ div class="row"
 
     - @document.questions.each do |q|
       - if q.answers.count > 0
-        div class="panel" style="background-color: #fff; border: 1px solid green"
+        div class="panel" style="background-color: #fff; border: 2px solid green"
           == @pipeline.call(q.text)[:output].to_s
+          div style="margin:auto; width: 28%"
+            = image_tag "answeredIcon.png", class: "left", style: "margin-right: 5px; padding-top: 3px"
+            h5 class="left" style="color: green" Answered
           = link_to "View Question", group_document_question_path(@group, @document, q), class: "button expand"
       - else
-        div class="panel" style="background-color: #FFF; border: 1px solid red"
+        div class="panel" style="background-color: #FFF; border: 2px solid red"
           == @pipeline.call(q.text)[:output].to_s
+          div style="margin:auto; width: 30%"
+            = image_tag "answerNeededIcon.png", class: "left", style: "margin-right: 5px; padding-top: 3px"
+            h5 class="left" style="color: red" Answer This
           = link_to "View Question", group_document_question_path(@group, @document, q), class: "button expand"
 
   div class="medium-6 medium-centered columns panel large-6 large-centered text-center" style="overflow: auto"
