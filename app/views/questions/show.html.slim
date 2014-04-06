@@ -7,7 +7,7 @@ div class="row"
     h2 Answers
     - if current_user.has_contributed_to @question.document
       ul
-        - @question.answers.each do |ans|
+        - @answers.each do |ans|
           li= ans.score.to_s + " - " + ans.text
 
           - unless current_user.voted_for ans
