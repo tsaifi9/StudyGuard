@@ -12,4 +12,8 @@ h1= @group.name
 
 - else
   p= link_to "Request Membership", join_group_path, method: :post
-end
+
+= form_tag(group_invite_path, method: "post") do
+  = label_tag(:email, "Email:")
+  = text_field_tag(:email)
+  = submit_tag("Invite User")

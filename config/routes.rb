@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   post 'groups/:id/join' => 'groups#join', as: :join_group
+  post 'groups/:id/invite' => 'groups#invite', as: :group_invite
 
   root 'home#show'
   devise_for :users

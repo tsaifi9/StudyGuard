@@ -27,6 +27,13 @@ class GroupsController < ApplicationController
     redirect_to @group
   end
 
+  def invite
+    @group = Group.find params[:id]
+    @email = params[:email]
+    UserMailer.invite_user(@email, @group).deliver
+    redirect_to @group
+  end
+
   private
   def group_params
     params.require(:group).permit(:name)
