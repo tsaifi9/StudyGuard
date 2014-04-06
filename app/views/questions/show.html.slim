@@ -17,7 +17,7 @@ div class="row"
           - unless current_user.voted_for ans
             = button_to " ", group_document_question_answer_votes_path(@question.document.group, @question.document, @question, ans, ans.votes.build, params: {value: 1}), id: "upvoteButton", class: "left"
             = button_to " ", group_document_question_answer_votes_path(@question.document.group, @question.document, @question, ans, ans.votes.build, params: {value: -1}), id: "downvoteButton", class: "left"
-          span class="right" Submitted by #{ans.user.name}
+          span class="right" Submitted by #{ans.user.name} on #{ans.created_at.to_formatted_s(:short)}
     - else
       p Contribute to view answers!
 
