@@ -4,6 +4,8 @@ class QuestionsController < ApplicationController
     @document = Document.find params[:document_id]
     @question = Question.find params[:id]
 
+    @answers = @question.answers.sort_by {|ans| -ans.score }
+
     @pipeline = HTML::Pipeline.new [HTML::Pipeline::MarkdownFilter]
   end
 

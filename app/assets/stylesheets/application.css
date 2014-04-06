@@ -16,7 +16,11 @@
 
  */
 
-body
-{
+body {
    background-image: url("paperbg.png");
+}
+
+#smalllogo {
+  margin-left: 10px;
+  margin-top: 3px;
 }
