@@ -14,7 +14,7 @@ div class="row"
           = button_to "-1", group_document_question_answer_votes_path(@question.document.group, @question.document, @question, ans, ans.votes.build, params: {value: -1})
 
 
-    h2 Add a question:
+    h2 Add an answer:
     = form_for @question.answers.build, url: group_document_question_answers_path(@group, @document, @question, @question.answers.build) do |f|
       = f.label :text
       = f.text_area :text

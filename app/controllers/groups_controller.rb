@@ -30,7 +30,9 @@ class GroupsController < ApplicationController
   def invite
     @group = Group.find params[:id]
     @email = params[:email]
+    User.find_by(email: @email).groups << @group if User.find_by(email: @email).present?
     UserMailer.invite_user(@email, @group).deliver
+
     redirect_to @group
   end
 
