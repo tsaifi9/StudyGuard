@@ -47,3 +47,9 @@ gem 'foundation-rails'
 # Markdown
 gem 'html-pipeline'
 gem 'github-markdown'
+
+
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end

@@ -1,24 +1,29 @@
 div class="row"
   div class="medium-6 medium-centered columns panel large-6 large-centered text-center"
-    h1 Question
-    div class="panel"
+    p= image_tag "questionsicon.png"
+    h4 Question
+    div class="panel" style="background-color: #FFF"
       == @pipeline.call(@question.text)[:output].to_s
 
-    h2 Answers
+  div class="medium-6 medium-centered columns panel large-6 large-centered text-center"
+    p= image_tag "newquestionicon.png"
+    h4 Answers
     - if current_user.has_contributed_to @question.document
-      ul
-        - @answers.each do |ans|
-          li= ans.score.to_s + " - " + ans.text
-
+      - @answers.each do |ans|
+        div class="panel" style="background-color: #FFF"
+          div class="left score"
+            span= ans.score.to_s
+          span class="left"= ans.text
           - unless current_user.voted_for ans
-            = button_to "+1", group_document_question_answer_votes_path(@question.document.group, @question.document, @question, ans, ans.votes.build, params: {value: 1})
-            = button_to "-1", group_document_question_answer_votes_path(@question.document.group, @question.document, @question, ans, ans.votes.build, params: {value: -1})
+            = button_to " ", group_document_question_answer_votes_path(@question.document.group, @question.document, @question, ans, ans.votes.build, params: {value: 1}), id: "upvoteButton", class: "right"
+            = button_to " ", group_document_question_answer_votes_path(@question.document.group, @question.document, @question, ans, ans.votes.build, params: {value: -1}), id: "downvoteButton", class: "right"
     - else
       p Contribute to view answers!
 
 
   div class="medium-6 medium-centered columns panel large-6 large-centered text-center" style="overflow: auto"
     p= image_tag "newquestionicon.png"
+    h4= "Create Answer"
     = form_for @question.answers.build, url: group_document_question_answers_path(@group, @document, @question, @question.answers.build) do |f|
       = f.label :text
       = f.text_area :text
