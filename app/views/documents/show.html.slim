@@ -1,14 +1,15 @@
 div class="row"
-  div class="medium-6 medium-centered columns panel large-6 large-centered columns panel text-center" style="overflow: auto"
+  div class="medium-6 medium-centered columns panel large-6 large-centered columns panel text-center"
     h1= @document.name
 
     - @document.questions.each do |q|
       div class="panel"
         == @pipeline.call(q.text)[:output].to_s
         = link_to "View Question", group_document_question_path(@group, @document, q)
+
+  div class="medium-6 medium-centered columns panel large-6 large-centered text-center" style="overflow: auto"
     = image_tag "newquestionicon.png"
-    br
-    br
+    h4= "Create New Question"
     = form_for @document.questions.build, url: group_document_questions_path(@group, @document, @document.questions.build) do |f|
       = f.label :text, class: "formlabel"
       = f.text_area :text
