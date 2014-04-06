@@ -1,5 +1,8 @@
-h1 Create New Group
-= form_for @group do |f|
-  = f.label :name
-  = f.text_field :name
-  = f.submit
+div class="medium-6 medium-centered columns panel large-6 large-centered columns panel text-center" style="overflow: auto"
+  = image_tag "newgroupicon.png"
+  br
+  br
+  = form_for @group do |f|
+    = f.label :name
+    = f.text_field :name
+    = f.submit class: "button expand"

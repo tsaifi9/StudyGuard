@@ -2,9 +2,9 @@ div class="row"
   div class="medium-6 medium-centered columns panel large-6 large-centered columns panel text-center" style="overflow: auto"
     h1= @group.name
     - if @group.users.include? current_user
-      ul
-      - @group.documents.each do |doc|
-        li= link_to doc.name, [@group, doc]
+      ul style="list-style: none; margin-left: 0"
+        - @group.documents.each do |doc|
+          li= link_to doc.name, [@group, doc], class: "button expand"
 
       = image_tag "newdocumenticon.png"
       = form_for([@group, @group.documents.build]) do |f|

@@ -1,15 +1,16 @@
 div class="row"
   div class="medium-6 medium-centered columns panel large-6 large-centered columns panel text-center" style="overflow: auto"
     h1= @document.name
-    = link_to "Back to #{@document.group.name}", @document.group
 
     - @document.questions.each do |q|
       div class="panel"
         == @pipeline.call(q.text)[:output].to_s
         = link_to "View Question", group_document_question_path(@group, @document, q)
-    br
     = image_tag "newquestionicon.png"
+    br
+    br
     = form_for @document.questions.build, url: group_document_questions_path(@group, @document, @document.questions.build) do |f|
       = f.label :text
       = f.text_area :text
       = f.submit class: "button expand"
+    = link_to "Back to #{@document.group.name}", @document.group
