@@ -3,7 +3,7 @@ div class="row"
     h1= @document.name
 
     - @document.questions.each do |q|
-      div class="panel"
+      div class="panel" style="background-color: #FFF"
         == @pipeline.call(q.text)[:output].to_s
         = link_to "View Question", group_document_question_path(@group, @document, q)
 
