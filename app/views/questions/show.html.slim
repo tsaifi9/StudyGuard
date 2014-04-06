@@ -10,10 +10,10 @@ div class="row"
     h4 Answers
     - if current_user.has_contributed_to @question.document
       - @answers.each do |ans|
-        div class="panel" style="background-color: #FFF; height: 55px"
+        div class="panel" style="background-color: #FFF; overflow: auto"
+          p class="left text-left"= ans.text
           div class="left score"
             span= ans.score.to_s
-          span class="left"= ans.text
           - unless current_user.voted_for ans
             = button_to " ", group_document_question_answer_votes_path(@question.document.group, @question.document, @question, ans, ans.votes.build, params: {value: 1}), id: "upvoteButton", class: "right"
             = button_to " ", group_document_question_answer_votes_path(@question.document.group, @question.document, @question, ans, ans.votes.build, params: {value: -1}), id: "downvoteButton", class: "right"
